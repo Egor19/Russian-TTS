@@ -31,7 +31,7 @@ The pitch/volume/speaking rate of the synthesized utterances can be controlled b
 For example, one can increase the speaking rate by 20 % and decrease the volume by 20 % by
 
 ```
-python3 synthesize.py --text "YOUR_DESIRED_TEXT" --restore_step 900000 --mode single -p config/LJSpeech/preprocess.yaml -m config/LJSpeech/model.yaml -t config/LJSpeech/train.yaml --duration_control 0.8 --energy_control 0.8
+python3 synthesize.py --text "YOUR_DESIRED_TEXT" --restore_step 250000 --mode single -p config/LJSpeech/preprocess.yaml -m config/LJSpeech/model.yaml -t config/LJSpeech/train.yaml --duration_control 0.8 --energy_control 0.8
 ```
 
 # Training
@@ -47,15 +47,12 @@ Create a folder raw_data and copy the dataset there.
 ## Preprocessing
  
 First, run 
-```
+
 The preprocessing script by
 ```
 python3 preprocess.py config/RUSLAN/preprocess.yaml
 ```
-
-
 ## Training
-
 Train your model with
 ```
 python3 train.py -p config/RUSLAN/preprocess.yaml -m config/RUSLAN/model.yaml -t config/RUSLAN/train.yaml
@@ -78,4 +75,3 @@ The loss curves, synthesized mel-spectrograms, and audios are shown.
 - Gradient clipping is used in the training.
 
 
-```
